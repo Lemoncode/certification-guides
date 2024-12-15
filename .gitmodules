@@ -1,0 +1,4 @@
+[submodule "ckad-guide"]
+	path = ckad-guide
+	url = https://github.com/Lemoncode/ckad-guide
+	branch = release
