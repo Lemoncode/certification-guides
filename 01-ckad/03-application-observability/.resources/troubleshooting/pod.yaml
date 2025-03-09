@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: file-creator
+spec:
+  containers:
+  - name: app
+    image: jaimesalas/ckad-guide:distroless-v0.0.1
