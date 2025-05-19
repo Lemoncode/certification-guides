@@ -1,6 +1,6 @@
 # Exercise 1
 
-Using your favourite image builder (docker, podman) go to `resources/01-container-images/app1` and perform next operations:
+Using your favorite image builder (docker, podman) go to `99-resources/01-container-images/app1` and perform next operations:
 
 - Build the image under name `go-web` with tag `1.0.0`.
 - Run the container and expose port `8080` to the host. Does the container run properly?
