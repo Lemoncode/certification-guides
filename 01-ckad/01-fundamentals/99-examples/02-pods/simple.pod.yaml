@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: simple-pod
+  name: simple-pod
+spec:
+  containers:
+    - image: busybox:1.37.0
+      name: simple-pod
+      command:
+        - /bin/sh
+        - -c
+        - |
+          i=0
+          while true; do
+            i=$((i+1))
+            echo "Time running: ${i}s"
+            sleep 1
+          done
+      env:
+        - name: APP_VERSION
+          value: 22.10.0
+        - name: PERSISTENCE_TYPE
+          value: s3
+      resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: OnFailure
+status: {}
