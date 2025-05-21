@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: webserver
+    type: backend
+  name: labeled-pod
+spec:
+  containers:
+    - image: httpd:2.4.63
+      name: labeled-pod
+      resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

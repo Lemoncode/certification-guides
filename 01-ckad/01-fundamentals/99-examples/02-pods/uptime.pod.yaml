@@ -9,12 +9,13 @@ spec:
   containers:
     - command:
         - /bin/sh
-      args:
         - -c
         - |
+          i=0
           while true; do
-            echo "Still alive: $(uptime -s)"
-            sleep 5
+            i=$((i+1))
+            echo "Time running: ${i}s"
+            sleep 1
           done
       image: busybox:1.36.1
       name: uptime

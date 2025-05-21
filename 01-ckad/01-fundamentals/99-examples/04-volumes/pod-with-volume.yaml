@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod-with-volume
+  name: pod-with-volume
+spec:
+  volumes:
+    - name: working-dir
+      emptyDir: {}
+  containers:
+    - args:
+        - /bin/sh
+        - -c
+        - |
+          while true; do
+            sleep 30
+            if [ ! -f $APP_FILE ]; then
+              echo "Creating new file and exiting"
+              echo "New file contents" > $APP_FILE
+              exit 1
+            else
+              echo "File exists:"
+              cat $APP_FILE
+            fi
+          done
+      image: busybox:1.37.0
+      env:
+        - name: APP_FILE
+          value: /app/new-file.txt
+      name: pod-with-volume
+      resources: {}
+      volumeMounts:
+        - name: working-dir
+          mountPath: /app
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

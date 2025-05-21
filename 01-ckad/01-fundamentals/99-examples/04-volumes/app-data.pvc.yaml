@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: app-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "" # Empty for static provisioning
+  resources:
+    requests:
+      storage: 256Mi

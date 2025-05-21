@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: random-sum
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: random-sum
+          image: busybox:1.37.0
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Doing something..."
+              sleep 1
+              echo "Oops, failed to do that"
+              exit 1
